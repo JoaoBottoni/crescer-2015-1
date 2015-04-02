@@ -8,18 +8,20 @@
 public class Orc
 {
     // instance variables - replace the example below with your own
-    public int vida;
-    private String umNome;
+    private int vida;
     /**
      * Constructor for objects of class Orc
      * 
-     * @param umNome Nome que o Orc receberá.
      */
-    public Orc(String nome)
-    {
-        umNome = nome;
+    public Orc()
+    {  
         vida = 110;
     }
-
+    /**
+     * Orc perde 10 de vida ao levar flechada.
+     */
+    public void perdeVida() {
+       vida=vida-10;
+    }
    
 }

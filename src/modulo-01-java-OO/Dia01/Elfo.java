@@ -32,15 +32,7 @@ public class Elfo
     public Elfo(String nome) {
         this.nome = nome;
     }
-    
-    /**
-     * Atira uma flecha e perde uma unidade.
-     */
-    public void atirarFlecha() {
-        //flechas = flechas - 1;
-        flechas--;
-        experiencia++;
-    }
+   
     /**
      * Atira uma flecha em um Orc e perde uma unidade.
      */
@@ -48,7 +40,7 @@ public class Elfo
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
-        n.vida = n.vida-10;
+        n.perdeVida();
     }
     /*public void setNome(String novoNome) {
         nome = novoNome;
