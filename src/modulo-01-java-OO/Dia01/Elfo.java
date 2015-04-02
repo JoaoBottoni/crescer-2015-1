@@ -41,7 +41,15 @@ public class Elfo
         flechas--;
         experiencia++;
     }
-    
+    /**
+     * Atira uma flecha em um Orc e perde uma unidade.
+     */
+    public void atirarFlechaOrc(Orc n) {
+        //flechas = flechas - 1;
+        flechas--;
+        experiencia++;
+        n.vida = n.vida-10;
+    }
     /*public void setNome(String novoNome) {
         nome = novoNome;
     }
