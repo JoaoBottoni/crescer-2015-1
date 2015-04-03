@@ -7,7 +7,7 @@
  */
 public class Orc
 {
-    // instance variables - replace the example below with your own
+        // instance variables - replace the example below with your own
     private int vida;
     /**
      * Constructor for objects of class Orc
