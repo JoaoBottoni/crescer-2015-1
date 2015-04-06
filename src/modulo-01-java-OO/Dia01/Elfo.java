@@ -1,4 +1,5 @@
 
+
 /**
  * Define objetos Elfo
  * 
@@ -37,9 +38,8 @@ public class Elfo
     public Elfo(String nome) {
         this.nome = nome;
     }
-   
+    
     /**
-
      * Atira uma flecha e perde uma unidade.
      * 
      * @param umOrc Orc que receberá uma flechada.
@@ -49,9 +49,7 @@ public class Elfo
         flechas--;
         experiencia++;
         umOrc.recebeAtaque();
-
     }
-
     
     public String getNome() {
         return this.nome;
@@ -59,6 +57,10 @@ public class Elfo
     
     public int getFlechas() {
         return this.flechas;
+    }
+    
+    public int getExperiencia() {
+        return this.experiencia;
     }
     
     /*public void setFlechas(int novaQtdFlechas) {
@@ -76,3 +78,4 @@ public class Elfo
     
     
 }
+
