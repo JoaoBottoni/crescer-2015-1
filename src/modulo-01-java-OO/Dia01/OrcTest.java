@@ -102,9 +102,49 @@ public class OrcTest
 
     }
     
+    @Test
+    public void orcToStringRetornaVidaPadrao() {
+        //Arrange
+        Orc orc = new Orc();
+        //Act
+        String resultadoObtido = orc.toString();
+        //Assert
+        String esperado = "Vida atual: 110";
+        assertEquals (esperado,resultadoObtido);;
+    }
     
+    @Test
+    public void orcToStringRetornaVidaAposAtaque() {
+        //Arrange
+        Orc orc = new Orc();
+        //Act
+        orc.recebeAtaque();
+        String resultadoObtido = orc.toString();
+        //Assert
+        String esperado = "Vida atual: 100";
+        assertEquals (esperado,resultadoObtido);
+    }
+    
+    @Test
+    public void orcToStringRetornaVidaAposDozeAtaques() {
+        //Arrange
+        Orc orc = new Orc();
+        //Act
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        orc.recebeAtaque();
+        String resultadoObtido = orc.toString();
+        //Assert
+        String esperado = "Vida atual: -10";
+        assertEquals (esperado,resultadoObtido);
+    }
 }
-
-
-
-
