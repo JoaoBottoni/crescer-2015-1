@@ -51,9 +51,7 @@ public class Elfo
         umOrc.recebeAtaque();
 
     }
-<<<<<<< HEAD
-   
-=======
+
     
     public String getNome() {
         return this.nome;
@@ -63,7 +61,6 @@ public class Elfo
         return this.flechas;
     }
     
->>>>>>> a1423262b09721dcb3766ad57c47b1921d77e73e
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
