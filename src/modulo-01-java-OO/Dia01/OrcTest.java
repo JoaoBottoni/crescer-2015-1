@@ -30,7 +30,76 @@ public class OrcTest
     }
     
     @Test
-    public void orcRecebeAtaque() {
+    public void orcRecebeAtaqueUmaVez() {
+        //Arrange
+        Orc umOrc = new Orc();
+        //Act
+        umOrc.recebeAtaque();
+        
+        //Assert
+        int esperado = 100;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals (esperado,resultadoObtido);
+       
+    }
+     @Test
+    public void orcRecebeAtaqueDuasVezes() {
+        //Arrange
+        Orc umOrc = new Orc();
+        //Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        
+        //Assert
+        int esperado = 90;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals (esperado,resultadoObtido);
+       
+    }
+    @Test
+    public void orcRecebeAtaqueCincoVezes() {
+        //Arrange
+        Orc umOrc = new Orc();
+        //Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        
+        //Assert
+        int esperado = 60;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals (esperado,resultadoObtido);
+       
+    }
+    @Test
+    public void orcRecebeAtaqueDozeVezes() {
+        //Arrange
+        Orc umOrc = new Orc();
+        //Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        
+        //Assert
+        int esperado = -10;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals (esperado,resultadoObtido);
+       
     }
 }
 
