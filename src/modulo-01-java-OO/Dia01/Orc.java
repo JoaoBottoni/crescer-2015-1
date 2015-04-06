@@ -1,27 +1,36 @@
 
 /**
- * Write a description of class Orc here.
+ * Define objetos do tipo Orc
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author CWI Software
  */
 public class Orc
 {
-        // instance variables - replace the example below with your own
-    private int vida;
+    private int vida = 110;
+
+    {
+        //vida = 110;
+    }
+    
     /**
-     * Constructor for objects of class Orc
-     * 
-     */
+     * Construtor para objetos da classe Orc
     public Orc()
-    {  
-        vida = 110;
+    {
+        //vida = 110;
     }
+    **/
+    
     /**
-     * Orc perde 10 de vida ao levar flechada.
+     * Faz o Orc sofrer um ataque.
+     * Atualmente 10 de dano será decrementado.
      */
-    public void perdeVida() {
-       vida=vida-10;
+    public void recebeAtaque() {
+        this.vida -= 10;
+        // this.vida = this.vida - 10;
     }
-   
+    
+    public int getVida() {
+        return this.vida;
+    }
+
 }

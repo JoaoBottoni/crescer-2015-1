@@ -34,18 +34,19 @@ public class Elfo
     }
    
     /**
-     * Atira uma flecha em um Orc e perde uma unidade.
+
+     * Atira uma flecha e perde uma unidade.
+     * 
+     * @param umOrc Orc que receberá uma flechada.
      */
-    public void atirarFlechaOrc(Orc n) {
+    public void atirarFlecha(Orc umOrc) {
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
-        n.perdeVida();
+        umOrc.recebeAtaque();
+
     }
-    /*public void setNome(String novoNome) {
-        nome = novoNome;
-    }
-    */
+   
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
