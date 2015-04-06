@@ -63,6 +63,17 @@ public class Elfo
         return this.experiencia;
     }
     
+    /*
+     * Imprime o nome, número de flechas e quantidade de Experiência do Elfo
+     * 
+     * @return String com as informações
+     * 
+     * Ex: "Legolas possui 42 flechas e 4 níveis de experiência"
+     */
+    public String toString() {
+        return this.nome + " possui " + this.flechas + " flechas e " + this.experiencia + " níveis de experiência.";
+    }
+    
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
