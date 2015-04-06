@@ -100,6 +100,7 @@ public class ElfoTest
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
     }
+
     
     @Test
     public void elfoAtiraFlechasDuasVezesNoMesmoOrc() {
@@ -135,4 +136,6 @@ public class ElfoTest
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
     }
+    
+
 }
