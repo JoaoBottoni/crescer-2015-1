@@ -13,12 +13,14 @@ import org.junit.Test;
  */
 public class ElfoTest
 {
-    /**
-     * Default constructor for test class ElfoTest
-     */
-    public ElfoTest()
-    {
-    
-    }
-
+    @Test
+        public void elfoNasceComNomeInformado() {
+                //Arrange
+            String esperado = "Celeborn";
+            //Act
+            Elfo elfo = new Elfo(esperado);
+            //Assert
+            assertEquals (esperado, elfo.getNome());
+        }
+ 
 }
