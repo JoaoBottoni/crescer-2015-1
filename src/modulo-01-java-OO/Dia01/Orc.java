@@ -7,9 +7,10 @@
 public class Orc
 {
     private int vida = 110;
-
+    private Status status;
     {
         //vida = 110;
+        status = Status.VIVO;
     }
     
     /**
@@ -43,4 +44,5 @@ public class Orc
     public String toString() {
         return "Vida atual: " + this.vida;
     }
+    
 }
