@@ -7,12 +7,29 @@
 public class Orc
 {
     private int vida = 110;
+    private String nome;
+    private int experiencia = 0;
     private Status status;
     {
         //vida = 110;
         status = Status.VIVO;
     }
     
+     /**
+     * Construtor Orc com nome definido pelo usuário
+     * 
+     * @param nome Nome que o Orc receberá
+     */
+    public Orc(String nome) {
+        this.nome = nome;
+    }
+
+   /**
+    * 
+    *Construtor Orc default
+    */
+   public Orc(){
+     }
     /**
      * Construtor para objetos da classe Orc
     public Orc()
