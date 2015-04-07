@@ -44,6 +44,9 @@ public class Orc
      */
     public void recebeAtaque() {
         this.vida -= 10;
+        if(this.vida<=0){
+            status = Status.MORTO;
+        }
         // this.vida = this.vida - 10;
     }
     
