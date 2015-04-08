@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Define objetos do tipo Orc
@@ -11,6 +12,7 @@ public class Orc
     private int experiencia, vida = 110;
     private String nome;
     private Status status = Status.VIVO;
+    ArrayList< ItemDoInventario > itensDoOrc = new ArrayList< ItemDoInventario >();
 
     {
         //vida = 110;
@@ -86,6 +88,24 @@ public class Orc
     
     public void setExperiencia(int experiencia) {
         this.experiencia = experiencia;
+    }
+    
+    /**
+     * Adiciona item ao inventário do Orc.
+     * 
+     * @param ItemDoInventario item é o objeto a ser adicionado ao Orc.
+     */
+    public void adicionarItem(ItemDoInventario item){
+        itensDoOrc.add(item);
+    }
+    
+    /**
+     * Retira item do inventário do Orc.
+     * 
+     * @param ItemDoInventario item é o objeto a ser removido do Orc.
+     */
+    public void perderItem(ItemDoInventario item){
+        itensDoOrc.remove(item);
     }
     
     /**
