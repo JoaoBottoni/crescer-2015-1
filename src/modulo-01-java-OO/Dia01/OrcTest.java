@@ -375,4 +375,20 @@ public class OrcTest
         // Assert
         assertEquals(descricoesEsperada, resultadoDescricoes);
     }
+    
+    @Test
+    public void orcTentarSorte(){
+        //Arrage
+        Orc orc1 = new Orc();
+        orc1.setStatus(Status.DORMINDO);
+        orc1.setExperiencia(3);
+        orc1.adicionarItem(new ItemDoInventario(3, "HP Potion"));
+        orc1.adicionarItem(new ItemDoInventario(5, "MP Potion"));
+        //Act
+        orc1.tentarSorte();
+        ItemDoInventario hp = orc1.getItens().get(0);
+        ItemDoInventario mp = orc1.getItens().get(1);
+        assertEquals(1003, hp.getQuantidade());
+        assertEquals(1005, mp.getQuantidade());
+    }
 }

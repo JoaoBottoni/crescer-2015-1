@@ -127,6 +127,20 @@ public class Orc
     }
     
     /**
+     * Caso o Orc tenha sorte, adiciona 1000 para cada item do inventário.
+     * 
+     */
+    public void tentarSorte(){
+        double numeroGerado = gerarNumero();
+        if (numeroGerado == 3481) {
+            for(ItemDoInventario item : this.itens) {
+                int novaQuantidadeItem = item.getQuantidade() + 1000;
+                item.setQuantidade(novaQuantidadeItem);
+            }
+    }
+}
+    
+    /**
      * Concatena as descrições dos itens, separados por vírgula.
      * 
      * SEM ESPAÇO ENTRE AS VÍRGULAS E SEM PONTO FINAL

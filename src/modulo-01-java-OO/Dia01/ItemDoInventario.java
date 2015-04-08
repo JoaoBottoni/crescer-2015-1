@@ -26,4 +26,9 @@ public class ItemDoInventario
     public int getQuantidade() {
         return this.quantidade;
     }
+    
+    public void setQuantidade(int novaQuantidade){
+        this.quantidade = quantidade + 1000;
+    }
+    
 }
