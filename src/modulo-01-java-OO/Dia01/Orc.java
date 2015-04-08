@@ -6,10 +6,12 @@
  */
 public class Orc
 {
+
+
     private int experiencia, vida = 110;
     private String nome;
     private Status status = Status.VIVO;
-    
+
     {
         //vida = 110;
     }
@@ -25,6 +27,8 @@ public class Orc
     }
     
     public Orc() {
+
+
     }
     
     /**
