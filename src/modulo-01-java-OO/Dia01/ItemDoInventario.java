@@ -1,5 +1,6 @@
 /**
  * Representa um item e sua quantidade em inventário.
+ * 
  */
 public class ItemDoInventario
 {
@@ -7,10 +8,11 @@ public class ItemDoInventario
     private int quantidade;
     
     /**
-     * Cria um item do inventário com a quantidade e descrição informadas.
+
+     * Cria um item de inventário com a quantidade e descrição informadas
      * 
-     * @param quantidade Quantidade de unidades do item no inventário.
-     * @param descricao Descrição do item.
+     * @param quantidade Quantidade de unidades no inventário
+     * @param descricao Descrição do item
      */
     public ItemDoInventario(int quantidade, String descricao) {
         this.quantidade = quantidade;

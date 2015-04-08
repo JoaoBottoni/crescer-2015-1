@@ -5,7 +5,7 @@ import org.junit.Test;
 
 /**
  * Testes unitários da classe ItemDoInventario
- * 
+ *
  */
 public class ItemDoInventarioTest
 {
