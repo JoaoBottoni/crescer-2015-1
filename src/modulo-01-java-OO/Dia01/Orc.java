@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+
+import java.util.*;
 
 /**
  * Define objetos do tipo Orc
@@ -12,7 +13,9 @@ public class Orc
     private int experiencia, vida = 110;
     private String nome;
     private Status status = Status.VIVO;
-    ArrayList< ItemDoInventario > itensDoOrc = new ArrayList< ItemDoInventario >();
+
+    private ArrayList<ItemDoInventario> itens = new ArrayList<ItemDoInventario>();
+
 
     {
         //vida = 110;
@@ -90,24 +93,28 @@ public class Orc
         this.experiencia = experiencia;
     }
     
-    /**
-     * Adiciona item ao inventário do Orc.
-     * 
-     * @param ItemDoInventario item é o objeto a ser adicionado ao Orc.
-     */
-    public void adicionarItem(ItemDoInventario item){
-        itensDoOrc.add(item);
+    public ArrayList<ItemDoInventario> getItens() {
+        return this.itens;
     }
     
     /**
-     * Retira item do inventário do Orc.
+     * Adiciona um item ao inventário.
      * 
-     * @param ItemDoInventario item é o objeto a ser removido do Orc.
+     * @param item Item a ser adicionado.
      */
-    public void perderItem(ItemDoInventario item){
-        itensDoOrc.remove(item);
+    public void adicionarItem(ItemDoInventario item) {
+        this.itens.add(item);
     }
-    
+
+    /**
+     * Remove o item do inventário do orc.
+     * 
+     * @param item Item a ser perdido do inventário.
+     */
+    public void perderItem(ItemDoInventario item) {
+        this.itens.remove(item);
+    }
+        
     /**
      * Imprime a vida atual do Orc.
      * 
@@ -117,6 +124,97 @@ public class Orc
      */
     public String toString() {
         return "Vida atual: " + this.vida;
+    }
+    
+    /**
+     * Concatena as descrições dos itens, separados por vírgula.
+     * 
+     * SEM ESPAÇO ENTRE AS VÍRGULAS E SEM PONTO FINAL
+     * 
+     * @return Descrições. Ex:
+     * 
+     * "Adaga,Escudo,Bracelete”
+     */
+    public String getDescricoesItens() {
+        StringBuilder builder = new StringBuilder();
+        
+        /*
+         * Utilizando for tradicional         
+        int numeroDeItens = this.itens.size();
+
+        for (int i = 0; i < numeroDeItens; i++) {
+            ItemDoInventario itemAtual = this.itens.get(i);
+            
+            boolean éÚltimoÍndice = i == numeroDeItens - 1;
+                        
+            builder.append(
+                éÚltimoÍndice ?
+                itemAtual.getDescricao() :
+                itemAtual.getDescricao() + ","
+            );
+        }
+        */
+       
+       // C#
+       //foreach (ItemDoInventario item in this.itens) { }
+       
+       /*
+        * Utilizando FOREACH!!
+       for (ItemDoInventario itemAtual : this.itens) {
+           int i = this.itens.indexOf(itemAtual);
+           int numeroDeItens = this.itens.size();
+           boolean éÚltimoÍndice = i == numeroDeItens - 1;
+           
+           builder.append(
+                éÚltimoÍndice ?
+                itemAtual.getDescricao() :
+                itemAtual.getDescricao() + ","
+            );
+       }
+       */
+      
+      /*
+       * JavaScript
+      for (var i = 0, numeroDeItens = this.itens.size(); i < numeroDeItens; i++) {
+      }
+      */
+      
+     /*
+      * WHILE (ENQUANTO)
+      int i = 0;
+      int numeroDeItens = this.itens.size();    
+
+      while (i < numeroDeItens) {
+          ItemDoInventario itemAtual = this.itens.get(i);
+          boolean éÚltimoÍndice = i == numeroDeItens - 1;
+           
+          builder.append(
+                éÚltimoÍndice ?
+                itemAtual.getDescricao() :
+                itemAtual.getDescricao() + ","
+          );
+          //
+          i++;
+      }
+      */
+     
+     int i = 0;
+     int numeroDeItens = this.itens.size();
+     do {
+         if (numeroDeItens > 0) {
+             ItemDoInventario itemAtual = this.itens.get(i);
+              boolean éÚltimoÍndice = i == numeroDeItens - 1;
+               
+              builder.append(
+                    éÚltimoÍndice ?
+                    itemAtual.getDescricao() :
+                    itemAtual.getDescricao() + ","
+              );
+         }
+         i++;
+     } while(i < numeroDeItens);
+     
+       return builder.toString();
     }
     
     private double gerarNumero() {
