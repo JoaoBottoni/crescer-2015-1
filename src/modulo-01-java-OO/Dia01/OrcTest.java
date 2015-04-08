@@ -1,5 +1,5 @@
 
-
+import java.util.ArrayList;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -180,7 +180,7 @@ public class OrcTest
     public void orcNasceComNomeInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "Urukhai";	
+        String esperado = "Urukhai";    
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -193,7 +193,7 @@ public class OrcTest
     public void orcNasceComNomeVazioInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "";	
+        String esperado = "";   
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -206,7 +206,7 @@ public class OrcTest
     public void orcNasceComNomeNuloInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = null;	
+        String esperado = null; 
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -274,4 +274,31 @@ public class OrcTest
         assertEquals(vidaEsperada, orc.getVida());
         assertEquals(statusEsperado, orc.getStatus());
     }
+    
+    @Test
+    public void orcRecebeEPerdeUmItem(){   
+        //Arrange      
+        Orc orc = new Orc("Astolfo");
+        ItemDoInventario espada = new ItemDoInventario(5,"FlameEdge");
+        ArrayList <ItemDoInventario> arrayEsperado = new ArrayList<ItemDoInventario>();
+        //Act
+        orc.adicionarItem(espada);
+        orc.perderItem(espada);
+
+        //Act
+        assertEquals(arrayEsperado,orc.itensDoOrc);
+    }     
+    
+    @Test
+    public void orcRecebeUmItem(){   
+        //Arrange      
+        Orc orc = new Orc("Astolfo");
+        ItemDoInventario espada = new ItemDoInventario(5,"Flame Edge");
+        ArrayList <ItemDoInventario> arrayEsperado = new ArrayList<ItemDoInventario>();
+        //Act
+        orc.adicionarItem(espada);
+        arrayEsperado.add(espada);
+        //Act
+        assertEquals(arrayEsperado,orc.itensDoOrc);
+    }    
 }
