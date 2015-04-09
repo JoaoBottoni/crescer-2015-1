@@ -142,6 +142,37 @@ public class Orc
     }
     
     /**
+     * Verifica o inventário do Orc e retorna o item com maior quantidade.
+     * 
+     */
+    public String getItemComMaiorQuantidade() {
+       int i = 0;
+       int numeroDeItens = this.itens.size();
+       int maiorQuantidade = 0;
+       if(numeroDeItens == 0){
+           return "Inventário Vazio";
+       }
+       ItemDoInventario itemFinal = this.itens.get(i);
+       String descricaoFinal = itemFinal.getDescricao();
+       for (i = 0; i < numeroDeItens; i++) {
+            ItemDoInventario itemAtual = this.itens.get(i);
+            int quantidadeAtual = itemAtual.getQuantidade();
+                if(quantidadeAtual == maiorQuantidade) {
+                    itemFinal = this.itens.get(i);
+                    descricaoFinal = descricaoFinal + "," + itemFinal.getDescricao();
+                }
+                
+                if(quantidadeAtual > maiorQuantidade) {
+                    maiorQuantidade = quantidadeAtual;
+                    itemFinal = this.itens.get(i);
+                    descricaoFinal = itemFinal.getDescricao();
+                }
+                
+       }
+       return descricaoFinal;
+    }
+    
+    /**
      * Concatena as descrições dos itens, separados por vírgula.
      * 
      * SEM ESPAÇO ENTRE AS VÍRGULAS E SEM PONTO FINAL
