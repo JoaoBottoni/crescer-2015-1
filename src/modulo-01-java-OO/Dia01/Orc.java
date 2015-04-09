@@ -15,6 +15,7 @@ public class Orc
     private Status status = Status.VIVO;
 
     private ArrayList<ItemDoInventario> itens = new ArrayList<ItemDoInventario>();
+    private final int NUMERO_SORTE = 3481;
 
 
     {
@@ -137,8 +138,8 @@ public class Orc
                 int novaQuantidadeItem = item.getQuantidade() + 1000;
                 item.setQuantidade(novaQuantidadeItem);
             }
+        }
     }
-}
     
     /**
      * Concatena as descrições dos itens, separados por vírgula.

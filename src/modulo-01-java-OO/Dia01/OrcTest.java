@@ -377,7 +377,8 @@ public class OrcTest
     }
     
     @Test
-    public void orcTentarSorte(){
+
+    public void orcTentarSorteFuncionando(){
         //Arrage
         Orc orc1 = new Orc();
         orc1.setStatus(Status.DORMINDO);
@@ -391,4 +392,20 @@ public class OrcTest
         assertEquals(1003, hp.getQuantidade());
         assertEquals(1005, mp.getQuantidade());
     }
+    
+    @Test
+    public void orcTentarSorteNaoFazNada() {
+        // Arrange
+        Orc orc1 = new Orc();
+        orc1.adicionarItem(new ItemDoInventario(3, "HP Potion"));
+        orc1.adicionarItem(new ItemDoInventario(5, "MP Potion"));
+        // Act
+        orc1.tentarSorte();
+        // Assert
+        ItemDoInventario hp = orc1.getItens().get(0);
+        ItemDoInventario mp = orc1.getItens().get(1);
+        assertEquals(3, hp.getQuantidade());
+        assertEquals(5, mp.getQuantidade());
+    }
 }
+
