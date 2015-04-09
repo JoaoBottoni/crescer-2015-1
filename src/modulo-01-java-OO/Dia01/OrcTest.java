@@ -482,4 +482,68 @@ public class OrcTest
         //Assert
         assertEquals(resultadoMetodo,null);
     }
+    
+    @Test
+    public void ordenarSemItens() {
+        //Arrange
+        Orc orc1 = new Orc();
+        //Act
+        orc1.ordenarItens();
+        String resultadoEsperado = "";
+        String resultadoObtido = orc1.getDescricoesItens();
+        //Assert
+        assertEquals(resultadoEsperado,resultadoObtido);
+        
+    }
+    
+    @Test
+    public void ordenarUmItem() {
+        //Arrange
+        Orc orc1 = new Orc();
+        ItemDoInventario mp = new ItemDoInventario (-512, "MP Potion");
+        orc1.adicionarItem(mp);
+        //Act
+        orc1.ordenarItens();
+        String resultadoEsperado = "MP Potion";
+        String resultadoObtido = orc1.getDescricoesItens();
+        //Assert
+        assertEquals(resultadoEsperado,resultadoObtido);
+        
+    }
+    
+    @Test
+    public void ordenarDoisItens() {
+        //Arrange
+        Orc orc1 = new Orc();
+        ItemDoInventario cureall = new ItemDoInventario (5, "Cureall Potion");
+        ItemDoInventario hp = new ItemDoInventario (63, "HP Potion");
+        orc1.adicionarItem(cureall);
+        orc1.adicionarItem(hp);
+        //Act
+        orc1.ordenarItens();
+        String resultadoEsperado = "Cureall Potion,HP Potion";
+        String resultadoObtido = orc1.getDescricoesItens();
+        //Assert
+        assertEquals(resultadoEsperado,resultadoObtido);
+        
+    }
+    
+    @Test
+    public void ordenarTresItens() {
+        //Arrange
+        Orc orc1 = new Orc();
+        ItemDoInventario cureall = new ItemDoInventario (5, "Cureall Potion");
+        ItemDoInventario hp = new ItemDoInventario (63, "HP Potion");
+        ItemDoInventario mp = new ItemDoInventario (-512, "MP Potion");
+        orc1.adicionarItem(mp);
+        orc1.adicionarItem(cureall);
+        orc1.adicionarItem(hp);
+        //Act
+        orc1.ordenarItens();
+        String resultadoEsperado = "MP Potion,Cureall Potion,HP Potion";
+        String resultadoObtido = orc1.getDescricoesItens();
+        //Assert
+        assertEquals(resultadoEsperado,resultadoObtido);
+        
+    }
 }

@@ -165,6 +165,29 @@ public class Orc
        }
        return itemFinal;
     }
+   
+    /**
+     * Verifica o inventário do Orc e retorna o item com menorr quantidade.
+     * 
+     */
+    public void ordenarItens() {
+        int i = 0;
+        int j = 0;
+        int numeroDeItens = this.itens.size();
+            for (i = 0; i < numeroDeItens-1; i++) {
+                    for(j=0; j < numeroDeItens-1; j++) {
+                        ItemDoInventario itemAtual = this.itens.get(j);
+                        ItemDoInventario proximoItem = this.itens.get(j+1);
+                        int quantidadeAtual = itemAtual.getQuantidade();
+                        int proximaQuantidade = proximoItem.getQuantidade();
+                        if(proximaQuantidade < quantidadeAtual){
+                            ItemDoInventario aux = this.itens.get(j+1);
+                            itens.set(j+1,this.itens.get(j));
+                            itens.set(j,aux);
+                        }
+                    }
+            }
+    }
     
     /**
      * Concatena as descrições dos itens, separados por vírgula.
