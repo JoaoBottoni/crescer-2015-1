@@ -410,6 +410,18 @@ public class OrcTest
     }
     
     @Test
+    public void getItemComMaiorQuantidadeQuandoExisteUmUnicoItemNoInventario() {
+        // Arrange
+        Orc orc1 = new Orc();
+        ItemDoInventario mp = new ItemDoInventario (5, "MP Potion");
+        orc1.adicionarItem(mp);
+        //Act
+        ItemDoInventario resultadoMetodo = orc1.getItemComMaiorQuantidade();
+        //Assert
+        assertEquals(resultadoMetodo,mp);
+    }
+    
+    @Test
     public void getItemComMaiorQuantidadeQuandoUmUnicoItemPossuiMaiorQuantidade() {
         // Arrange
         Orc orc1 = new Orc();
