@@ -413,26 +413,52 @@ public class OrcTest
     public void getItemComMaiorQuantidadeQuandoUmUnicoItemPossuiMaiorQuantidade() {
         // Arrange
         Orc orc1 = new Orc();
-        orc1.adicionarItem(new ItemDoInventario(3, "HP Potion"));
-        orc1.adicionarItem(new ItemDoInventario(5, "MP Potion"));
-        orc1.adicionarItem(new ItemDoInventario(2, "Haste Potion"));
+        ItemDoInventario hp = new ItemDoInventario (3, "HP Potion");
+        ItemDoInventario mp = new ItemDoInventario (5, "MP Potion");
+        ItemDoInventario haste = new ItemDoInventario (2, "Haste Potion");
+        orc1.adicionarItem(hp);
+        orc1.adicionarItem(mp);
+        orc1.adicionarItem(haste);
         //Act
-        String resultadoMetodo = orc1.getItemComMaiorQuantidade();
+        ItemDoInventario resultadoMetodo = orc1.getItemComMaiorQuantidade();
         //Assert
-        assertEquals(resultadoMetodo,"MP Potion");
+        assertEquals(resultadoMetodo,mp);
     }
     
     @Test
-    public void getItemComMaiorQuantidadeQuandoMaisDeUmItemPossuiMaiorQuantidade() {
+    public void getItemComMaiorQuantidadeQuandoDoisItensPossuemMaiorQuantidade() {
         // Arrange
         Orc orc1 = new Orc();
-        orc1.adicionarItem(new ItemDoInventario(3, "HP Potion"));
-        orc1.adicionarItem(new ItemDoInventario(5, "MP Potion"));
-        orc1.adicionarItem(new ItemDoInventario(5, "Haste Potion"));
+        ItemDoInventario hp = new ItemDoInventario (3, "HP Potion");
+        ItemDoInventario mp = new ItemDoInventario (5, "MP Potion");
+        ItemDoInventario haste = new ItemDoInventario (5, "Haste Potion");
+        orc1.adicionarItem(hp);
+        orc1.adicionarItem(mp);
+        orc1.adicionarItem(haste);
         //Act
-        String resultadoMetodo = orc1.getItemComMaiorQuantidade();
+        ItemDoInventario resultadoMetodo = orc1.getItemComMaiorQuantidade();
         //Assert
-        assertEquals(resultadoMetodo,"MP Potion,Haste Potion");
+        assertEquals(resultadoMetodo,mp);
+    }
+    
+    @Test
+    public void getItemComMaiorQuantidadeQuandoVariosItensPossuemDiferentesQuantidades() {
+        // Arrange
+        Orc orc1 = new Orc();
+        ItemDoInventario cureall = new ItemDoInventario (5, "Cureall Potion");
+        ItemDoInventario stamina = new ItemDoInventario (59, "Stamina Potion");
+        ItemDoInventario hp = new ItemDoInventario (63, "HP Potion");
+        ItemDoInventario mp = new ItemDoInventario (512, "MP Potion");
+        ItemDoInventario haste = new ItemDoInventario (15, "Haste Potion");
+        orc1.adicionarItem(cureall);
+        orc1.adicionarItem(hp);
+        orc1.adicionarItem(mp);
+        orc1.adicionarItem(haste);
+        orc1.adicionarItem(stamina);
+        //Act
+        ItemDoInventario resultadoMetodo = orc1.getItemComMaiorQuantidade();
+        //Assert
+        assertEquals(resultadoMetodo,mp);
     }
     
     @Test
@@ -440,8 +466,8 @@ public class OrcTest
         // Arrange
         Orc orc1 = new Orc();
         //Act
-        String resultadoMetodo = orc1.getItemComMaiorQuantidade();
+        ItemDoInventario resultadoMetodo = orc1.getItemComMaiorQuantidade();
         //Assert
-        assertEquals(resultadoMetodo,"Inventário Vazio");
+        assertEquals(resultadoMetodo,null);
     }
 }
