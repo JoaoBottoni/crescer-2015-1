@@ -5,12 +5,10 @@
  * 
  * @author CWI Software
  */
-public class Elfo
+public class Elfo extends Personagem
 {
     // Versão correção do tema!!
-    
-    private String nome;
-    private int flechas, experiencia;
+    private int flechas;
 
     // type initializer
     {
@@ -36,7 +34,7 @@ public class Elfo
      * @param nome Nome a ser dado para o Elfo.
      */
     public Elfo(String nome) {
-        this.nome = nome;
+        super(nome, 0);
     }
     
     /**
@@ -59,21 +57,7 @@ public class Elfo
         return this.flechas;
     }
     
-    public int getExperiencia() {
-        return this.experiencia;
-    }
-    
-    /*
-     * Imprime o nome, número de flechas e quantidade de Experiência do Elfo
-     * 
-     * @return String com as informações
-     * 
-     * Ex: "Legolas possui 42 flechas e 4 níveis de experiência"
-     */
-    public String toStringVariaveis() {
-        return this.nome + " possui " + this.flechas + " flechas e " + this.experiencia + " níveis de experiência.";
-    }
-    
+
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
@@ -139,9 +123,5 @@ public class Elfo
         builder.append(textoNiveis);
         builder.append(" de experiência.");*/
     }
-    
-    
-    
-    
 }
 
