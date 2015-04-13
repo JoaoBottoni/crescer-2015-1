@@ -41,4 +41,57 @@ public class ElfoNoturnoTest
         int experienciaObtida = elfoNoturno.getExperiencia();
         assertEquals(experienciaEsperada, experienciaObtida);
     }
+    
+    @Test
+    public void quandoatiraFlechasAtéMorrer() {
+        ElfoNoturno elfoNoturno = new ElfoNoturno("Ezio");
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        elfoNoturno.atirarFlecha(new Orc());
+        Status statusObtido = elfoNoturno.getStatus();
+        Status statusEsperado = Status.MORTO;
+        assertEquals(statusEsperado, statusObtido);
+    }
 }

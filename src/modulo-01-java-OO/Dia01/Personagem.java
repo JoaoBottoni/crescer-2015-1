@@ -42,6 +42,12 @@ public class Personagem
         return this.itens;
     }
     
+    protected void matarSeMereceMorrer(){
+        if(this.vida <= 0){
+            this.status = Status.MORTO;
+        }
+    }
+    
     /**
      * Adiciona um item ao inventário.
      * 

@@ -37,6 +37,8 @@ public class ElfoNoturno extends Elfo
         super.atirarFlecha(umOrc);
         experiencia++;
         experiencia++;
-        vida = vida - (vida/20);
+        double vidaAPerder = vida*0.05;
+        vida -= vidaAPerder;
+        matarSeMereceMorrer();
     }
 }
