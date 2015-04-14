@@ -129,5 +129,13 @@ public class Elfo extends Personagem
         builder.append(textoNiveis);
         builder.append(" de experiência.");*/
     }
+    
+    
+    @Override
+    public boolean equals(Object outro) {
+        Elfo outroElfo = (Elfo)outro;
+        boolean saoIguais = this.nome.equals(outroElfo.getNome());
+        return saoIguais;
+    }
 }
 
