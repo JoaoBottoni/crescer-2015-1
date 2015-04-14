@@ -7,12 +7,15 @@ import java.util.*;
 public class Elfo extends Personagem
 {
     // Versão correção do tema!!
-    protected int flechas;
+    private int flechas;
+    private static int qtdElfosCriados;
+    private int x;
 
     // type initializer
     {
         flechas = 42;
         vida = 100;
+        Elfo.qtdElfosCriados++;
     }
     
     /**
@@ -53,7 +56,14 @@ public class Elfo extends Personagem
         return this.flechas;
     }
     
-
+    public static int getQtdElfosCriados() {
+        return Elfo.qtdElfosCriados;
+    }
+    
+    public static void resetaQuantidadeDeElfos() {
+        Elfo.qtdElfosCriados = 0;
+    }
+    
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
