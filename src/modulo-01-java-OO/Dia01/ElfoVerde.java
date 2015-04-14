@@ -1,47 +1,41 @@
-import java.util.*;
+import java.util.Arrays;
 
 /**
- * Define objetos Elfo_Verde
+ * Define objetos ElfoVerde.
  * 
+ * @author CWI Software
  */
 public class ElfoVerde extends Elfo
 {
-    {
-        flechas = 42;
-    }    
-        private final String[] ITENS_PERMITIDOS = new String[] {
-        "Espada de Aço Valiriano",
-        "Arco e Flecha de Vidro"
+    private final String[] ITENS_PERMITIDOS = new String[] {
+        "Espada de aço valiriano",
+        "Arco e Flecha de vidro"
     };
     
-    /**
-     * Cria objetos ElfoVerde
-     * 
-     * @param umNome Nome que o elfo receberá
-     * @param flechas Quantidade inicial de flechas
-     */
-    public ElfoVerde(String umNome, int flechas)
-    {
-        this(umNome);
-        // this.nome = nome;
-        this.flechas = flechas;
-    }
-    
-    /**
-     * Cria um elfo informando nome.
-     * 
-     * @param nome Nome a ser dado para o Elfo.
-     */
     public ElfoVerde(String nome) {
-        super(nome, 0);
+        super(nome);
     }
     
-    public void atirarFlecha(Orc umOrc){
-        super.atirarFlecha(umOrc);
-        experiencia++;
+    /**
+     * Atira a flecha "à moda verde".
+     * Por ser um elfo verde, ganhará o dobro de experiência que um Elfo comum.
+     * 
+     * @param orc Orc que receberá a flechada.
+     */
+    public void atirarFlecha(Orc orc) {
+        super.atirarFlecha(orc);
+        this.experiencia++;
     }
     
+    /**
+     * Adiciona o item no inventário, desde que o mesmo tenha descrição válida.
+     * Atuais descrições válidas: "Espada de aço valiriano", "Arco e Flecha de vidro"
+     * 
+     * @param item ItemDoInventario a ser adicionado
+     */
     public void adicionarItem(ItemDoInventario item) {
+        
+
         boolean descricaoValida = item != null && Arrays.asList(ITENS_PERMITIDOS).contains(item.getDescricao());
 
         if (descricaoValida) {
@@ -49,3 +43,4 @@ public class ElfoVerde extends Elfo
         }
     }
 }
+

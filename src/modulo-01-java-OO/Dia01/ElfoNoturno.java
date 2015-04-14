@@ -1,44 +1,26 @@
 import java.util.*;
-
 /**
- * Define objetos ElfoNoturno
+ * Descreve comportamento dos Elfos Noturnos.
  * 
  */
 public class ElfoNoturno extends Elfo
-{
-
-    {
-        flechas = 42;
-    }
-    
-    /**
-     * Cria objetos ElfoNoturno
-     * 
-     * @param umNome Nome que o elfo receberá
-     * @param flechas Quantidade inicial de flechas
-     */
-    public ElfoNoturno(String umNome, int flechas)
-    {
-        this(umNome);
-        // this.nome = nome;
-        this.flechas = flechas;
-    }
-    
-    /**
-     * Cria um elfo informando nome.
-     * 
-     * @param nome Nome a ser dado para o Elfo.
-     */
+{   
     public ElfoNoturno(String nome) {
-        super(nome, 0);
+        super(nome);
     }
     
-    public void atirarFlecha(Orc umOrc){
-        super.atirarFlecha(umOrc);
-        experiencia++;
-        experiencia++;
-        double vidaAPerder = vida*0.05;
-        vida -= vidaAPerder;
-        matarSeMereceMorrer();
-    }
+    /**
+     * Atira a flecha em um orc, ganhando o triplo de experiência e perdendo 5% da vida atual.
+     * 
+     * @param Orc orc que receberá a flechada.
+     */
+    public void atirarFlecha(Orc orc) {
+        super.atirarFlecha(orc);
+        this.experiencia += 2;
+        double qtdVidaAPerder = this.vida * 0.05;
+        //double qtdVidaAPerder = this.vida * 5/100;
+        this.vida -= qtdVidaAPerder;
+        this.status = (int)this.vida == 0 ? Status.MORTO : this.status;
+    }   
+
 }
