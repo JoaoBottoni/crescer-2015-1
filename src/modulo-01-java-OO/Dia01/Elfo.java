@@ -50,6 +50,7 @@ public class Elfo extends Personagem
         flechas--;
         experiencia++;
         umOrc.recebeAtaque();
+        status = Status.ATACANDO;
     }
     
     public int getFlechas() {
@@ -130,12 +131,20 @@ public class Elfo extends Personagem
         builder.append(" de experiência.");*/
     }
     
-    
+    /**
+     * Verifica se dois elfos são iguais.
+     * Critério atual: ter o mesmo nome.
+     * 
+     * @param outro Outro objeto elfo a ser comparado.
+     * @return boolean Verdadeiro caso sejam iguais. Falso caso contrário.
+     */
     @Override
     public boolean equals(Object outro) {
-        Elfo outroElfo = (Elfo)outro;
-        boolean saoIguais = this.nome.equals(outroElfo.getNome());
-        return saoIguais;
+        return ((Elfo)outro).getNome().equals(this.nome);
+    }
+    
+    public void imprimeNome() {
+        // TODO: System.out.println...
     }
 }
 
