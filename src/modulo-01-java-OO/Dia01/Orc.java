@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 /**
@@ -7,12 +8,15 @@ import java.util.*;
  */
 public class Orc extends Personagem
 {
+
     private final int NUMERO_SORTE = 3481;
+
 
     {
         //vida = 110;
     }
     
+
     /**
      * Construtor para objetos da classe Orc
      */ 
@@ -27,7 +31,10 @@ public class Orc extends Personagem
     
     /**
      * Faz o Orc sofrer um ataque.
-     * Atualmente 10 de dano será decrementado.
+     * Chama o metodo gerarNumero() :
+     * Se o número for menor que 0, o Orc ganha 2 de experiência e não recebe dano.
+     * Se o número for maior ou igual a 0 e menor que 100, o Orc não recebe experiência nem dano.
+     * Se o número for maior que 100, o Orc recebe 10 de dano.
      */
     public void recebeAtaque() {
         
@@ -72,6 +79,7 @@ public class Orc extends Personagem
      */
     public String toString() {
         return "Vida atual: " + this.vida;
+
     } 
     
     /**

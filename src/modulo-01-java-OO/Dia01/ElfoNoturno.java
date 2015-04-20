@@ -1,7 +1,7 @@
+import java.util.*;
 /**
  * Descreve comportamento dos Elfos Noturnos.
  * 
- * @author CWI Software
  */
 public class ElfoNoturno extends Elfo
 {   

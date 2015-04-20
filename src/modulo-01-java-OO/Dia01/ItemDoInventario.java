@@ -1,7 +1,6 @@
 /**
  * Representa um item e sua quantidade em inventário.
  * 
- * @author CWI Software
  */
 public class ItemDoInventario
 {
@@ -9,6 +8,7 @@ public class ItemDoInventario
     private int quantidade;
     
     /**
+
      * Cria um item de inventário com a quantidade e descrição informadas
      * 
      * @param quantidade Quantidade de unidades no inventário

@@ -6,7 +6,6 @@ import org.junit.Test;
 /**
  * Testes unitários da classe ItemDoInventario
  *
- * @author CWI Software
  */
 public class ItemDoInventarioTest
 {

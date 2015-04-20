@@ -1,8 +1,8 @@
+import java.util.*;
 
 /**
  * Define objetos Elfo
  * 
- * @author CWI Software
  */
 public class Elfo extends Personagem
 {
@@ -51,10 +51,6 @@ public class Elfo extends Personagem
         experiencia++;
         umOrc.recebeAtaque();
         status = Status.ATACANDO;
-    }
-    
-    public String getNome() {
-        return this.nome;
     }
     
     public int getFlechas() {
@@ -151,3 +147,4 @@ public class Elfo extends Personagem
         // TODO: System.out.println...
     }
 }
+

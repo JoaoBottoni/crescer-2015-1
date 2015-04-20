@@ -100,6 +100,7 @@ public class ElfoTest
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
     }
+
     
     @Test
     public void elfoAtiraFlechasDuasVezesNoMesmoOrc() {
@@ -137,6 +138,7 @@ public class ElfoTest
     }
     
     @Test
+
     public void elfoToStringPadrao() {
         // Arrange
         Elfo elfo = new Elfo("Faustão");
@@ -186,6 +188,7 @@ public class ElfoTest
     }
     
     @Test
+
     public void doisElfosComMesmoNomeSaoIguais() {
         // Arrange
         boolean esperado = true;
@@ -205,12 +208,5 @@ public class ElfoTest
         Elfo legolas2 = new Elfo("Legolas II");
         // Assert
         assertEquals(esperado, legolas.equals(legolas2));
-    }
-    
-    
-    
-    
+    }    
 }
-
-
-

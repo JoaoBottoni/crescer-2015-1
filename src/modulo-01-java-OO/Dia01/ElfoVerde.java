@@ -35,12 +35,12 @@ public class ElfoVerde extends Elfo
      */
     public void adicionarItem(ItemDoInventario item) {
         
+
         boolean descricaoValida = item != null && Arrays.asList(ITENS_PERMITIDOS).contains(item.getDescricao());
 
         if (descricaoValida) {
             super.adicionarItem(item);
         }
-
     }
     
     @Override
@@ -48,3 +48,4 @@ public class ElfoVerde extends Elfo
         return "Elfo Verde: " + super.toString();
     }
 }
+

@@ -27,23 +27,13 @@ public class TestesIntegrados
         double vidaEsperadaOrc = 100.0;
         String toStringEsperadoOrc = "Vida atual: 100.0";
         
+        String esperado = "Vida atual: 100";
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
         assertEquals(vidaEsperadaOrc, orc1.getVida(), DELTA);
         assertEquals(vidaEsperadaOrc, orc2.getVida(), DELTA);
         assertEquals(toStringEsperadoOrc, orc1.toString());
         assertEquals(toStringEsperadoOrc, orc2.toString());
+
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

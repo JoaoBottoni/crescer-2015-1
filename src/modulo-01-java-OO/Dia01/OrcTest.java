@@ -5,10 +5,12 @@ import org.junit.Test;
 import java.util.*;
 
 /**
+
  * A classe de teste OrcTest.
  *
  * @author  (seu nome)
  * @version (um número de versão ou data)
+
  */
 public class OrcTest
 {
@@ -20,6 +22,7 @@ public class OrcTest
         Orc umOrc;
         // Act - Execução da ação de testes
         umOrc = new Orc();
+
         // Assert - Verificação
         double esperado = 110;
         double resultadoObtido = umOrc.getVida();
@@ -42,6 +45,7 @@ public class OrcTest
     
     @Test
     public void orcRecebeAtaqueUmaVez() {
+
         // Arrange - Montagem dos dados de teste
         Orc umOrc = new Orc("Urukhai");
         // Act
@@ -72,11 +76,13 @@ public class OrcTest
         // Arrange - Montagem dos dados de teste
         Orc umOrc = new Orc("Urukhai");
         // Act
+
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
+
         // Assert - Verificação
         double esperado = 60;
         double resultadoObtido = umOrc.getVida();
@@ -114,15 +120,18 @@ public class OrcTest
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
+
         // Assert - Verificação
         double esperado = 0;
         double resultadoObtido = umOrc.getVida();
         
         assertEquals(esperado, resultadoObtido, DELTA);
+
     }
     
     @Test
     public void orcToStringRetornaVidaPadrao() {
+
         // Arrange
         Orc orc = new Orc();
         // Act
@@ -168,6 +177,7 @@ public class OrcTest
     }
     
     @Test
+
     public void orcNasceComNomeInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
@@ -369,38 +379,40 @@ public class OrcTest
     }
     
     @Test
-    public void orcTentarSorteAumenta1000UnidadesDosItens() {
-        // Arrange
-        Orc urukhai = new Orc();
-        urukhai.setStatus(Status.DORMINDO);
-        urukhai.setExperiencia(3);
-        urukhai.adicionarItem(new ItemDoInventario(3, "Poção de mana"));
-        urukhai.adicionarItem(new ItemDoInventario(1, "Poção Lança"));
-        // Act
-        urukhai.tentarSorte();
-        // Assert
-        ItemDoInventario pocao = urukhai.getItens().get(0);
-        ItemDoInventario lanca = urukhai.getItens().get(1);
-        assertEquals(1003, pocao.getQuantidade());
-        assertEquals(1001, lanca.getQuantidade());
+
+    public void orcTentarSorteFuncionando(){
+        //Arrage
+        Orc orc1 = new Orc();
+        orc1.setStatus(Status.DORMINDO);
+        orc1.setExperiencia(3);
+        orc1.adicionarItem(new ItemDoInventario(3, "HP Potion"));
+        orc1.adicionarItem(new ItemDoInventario(5, "MP Potion"));
+        //Act
+        orc1.tentarSorte();
+        //Assert
+        ItemDoInventario hp = orc1.getItens().get(0);
+        ItemDoInventario mp = orc1.getItens().get(1);
+        assertEquals(1003, hp.getQuantidade());
+        assertEquals(1005, mp.getQuantidade());
     }
     
     @Test
     public void orcTentarSorteNaoFazNada() {
         // Arrange
-        Orc urukhai = new Orc();
-        urukhai.adicionarItem(new ItemDoInventario(3, "Poção de mana"));
-        urukhai.adicionarItem(new ItemDoInventario(1, "Poção Lança"));
+        Orc orc1 = new Orc();
+        orc1.adicionarItem(new ItemDoInventario(3, "HP Potion"));
+        orc1.adicionarItem(new ItemDoInventario(5, "MP Potion"));
         // Act
-        urukhai.tentarSorte();
+        orc1.tentarSorte();
         // Assert
-        ItemDoInventario pocao = urukhai.getItens().get(0);
-        ItemDoInventario lanca = urukhai.getItens().get(1);
-        assertEquals(3, pocao.getQuantidade());
-        assertEquals(1, lanca.getQuantidade());
+        ItemDoInventario hp = orc1.getItens().get(0);
+        ItemDoInventario mp = orc1.getItens().get(1);
+        assertEquals(3, hp.getQuantidade());
+        assertEquals(5, mp.getQuantidade());
     }
     
     @Test
+
     public void getMaiorQuantidadeComNenhumItem() {
         // Arrange
         Orc orc = new Orc();
@@ -525,13 +537,3 @@ public class OrcTest
         assertEquals(inventarioEsperado, orc.getItens());
     }
 }
-
-
-
-
-
-
-
-
-
-
