@@ -1,44 +1,3 @@
-Select NomeEmpregado from Empregado
-	Order by DataAdmissao
-
-Select NomeEmpregado, (Salario*12) as SalarioAnual 
-	from Empregado
-	where Cargo = 'Atendente' 
-	OR (Salario*12) < 18500
-
-Select IDCidade 
-from Cidade
-where Nome = 'Uberlândia'
-
-Select IDCidade, Nome 
-from Cidade
-where UF = 'RS'
-
-Select count(IDEmpregado) as NumeroDeEmpregados from empregado;
-Select * from Empregado;
-
-Select count(1) as TotalEmpregados,
-	count(Distinct Cargo) as TotalCargos
-From Empregado;
-
-SELECT COUNT(DISTINCT CARGO) FROM EMPREGADO;
-
-SELECT IDDEPARTAMENTO,
-	SUM(SALARIO) AS SOMA,
-	MAX(SALARIO) AS MAXIMO,
-	MIN(SALARIO) AS MINIMO
-FROM EMPREGADO
-GROUP BY IDDEPARTAMENTO;
-
-Select NomeEmpregado,
-	(Salario + Comissao) as Total_sal_a,
-	(Salario + (ISNULL(Comissao,0))) as Total_sal_b,
-	Comissao
-From Empregado;
-
-select * from Empregado
-select * from associado
-
 -- exercício1
 SELECT Substring (nome, 1, CharIndex(' ', nome) -1) [PrimeiroNome]
 FROM ASSOCIADO
@@ -74,5 +33,35 @@ Select Nome,
 	datename(dw,dateadd(year, 50, DataNascimento)) as DiaDaSemana
 From Associado
 
+-- exercício7
+Select UF,
+	count(1) as NumeroCidades
+From Cidade
+Group by UF;
 
+-- exercício8
+Select Distinct Nome, UF
+From Cidade 
+GROUP BY Nome, UF
+HAVING count(Nome) > 1 and count(UF) > 1
 
+-- exercício9
+Select Top 1 IDAssociado + 1 as ProximoID
+From Associado
+Order by IDAssociado desc
+
+-- exercício10
+Truncate table CidadeAux
+
+insert into CidadeAux (IDCidade, Nome, UF)
+	select
+	IDCidade, Nome, UF
+from Cidade;
+
+With cte as(
+	Select Nome, UF,
+	RN = row_number()over(
+		partition by Nome, UF
+		order by Nome, UF)
+	From CidadeAux)
+Delete from cte where RN >1
