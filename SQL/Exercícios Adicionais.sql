@@ -35,5 +35,11 @@ commit
 --pois não há relacionamento direto entre Produto e Pedido (será preciso relacionar PedidoItem).
 --Obs.: o produto criado anteriormente deverá ser listado.
 
-Select * 
+Select Produto.nome
 From Produto
+LEFT JOIN PedidoItem ON Produto.IDProduto = PedidoItem.IDProduto
+where PedidoItem.IDPedido is null
+
+--5) Identifique qual o estado (coluna UF da tabela Cidade) possuí o maior número de clientes (tabela Cliente), 
+--liste também qual o Estado possuí o menor número de clientes.
+--Dica: pode (não é obrigatório) ser utilizado subquery, e também UNION.
