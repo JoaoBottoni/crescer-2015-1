@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<title>Cadastro de Elfos</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<form method="post">
+		<div style="height: 50px">
+			<label for="nome">Nome:</label>
+			<input name="nome" placeholder="Nome" type="text" pattern=".{6,}" required></input>
+		</div>
+		<div style="height: 50px">
+			<label for="sexo">Sexo:</label>
+			<input type="radio" name="sexo" value="Masculino" required>M</input>
+			<input type="radio" name="sexo" value="Feminino">F</input>
+		</div>
+		<div style="height: 50px">
+			<label for="flechas">Número de Flechas:</label>
+			<input type="number" name="flechas" value="42"></input>
+		</div>
+		<div style="height: 50px">
+			<label for="datanasc">Data de Nascimento:</label>
+			<input type="date" name="datanasc" required=""></input>
+		</div>
+		<div style="height: 50px">
+			<label for="statusinicial">Status Inicial:</label>
+			<select name="statusinicial">
+  				<option value="dormindo">Dormindo</option>
+  				<option value="cacando">Caçando</option>
+  				<option value="contandopiada">Contando Piada</option>
+			</select>
+		</div>
+		<div style="height: 120px">
+			<label for="checkbox">Itens Iniciais:</label><br>
+			<input type="checkbox" name="opcao1" value="arcoEFlecha" checked> Arco e Flecha</input><br>
+			<input type="checkbox" name="opcao2" value="espadaDeAçoPortoAlegrense" > Espada De Aço Porto-Alegrense</input><br>
+			<input type="checkbox" name="opcao3" value="escudoDeAmburana" checked> Escudo de Amburana</input><br>
+			<input type="checkbox" name="opcao4" value="pocaoHP"> Poção de HP</input>
+		</div>
+		<div style="height: 50px">
+			<label for="avatar">Avatar:</label>
+			<input type="file" name="avatar" accept="image/jpg,image/png">
+		</div>
+		<div style="height: 50pxx">
+			<label for="submit"></label>
+			<input type="submit" value="Cadastrar"></input>
+		</div>
+	</form>
+	<br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
