@@ -2,155 +2,157 @@ package mestrecuca;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class ReceitatorTeste {
-	@Test
-	public void inserirUmaReceita() throws Exception {
-		Receitator receitator = new Receitator();
-		Ingrediente bife = new Ingrediente("bife",1,15,UnidadeMedida.UNIDADE);
-		Instrucao assar = new Instrucao("Asse o bife.");
-		Receita receita = new Receita("Bife Assado");
-		receita.adicionarIngrediente(bife);
-		receita.adicionarInstrucao(assar);
-		receitator.inserir(receita);
-		List<Receita> esperado = new ArrayList<>();
-		esperado.add(receita);
-		assertEquals(esperado,receitator.getTodasReceitas());
+
+	private Receitator livro;
+	
+	@Before
+	public void setUp(){
+		livro = new Receitator();
 	}
 	
 	@Test
-	public void inserirTresReceitas() throws Exception {
-		Receitator receitator = new Receitator();
-		Ingrediente bife = new Ingrediente("bife",1,15,UnidadeMedida.UNIDADE);
-		Instrucao assar = new Instrucao("Asse o bife.");
-		Receita receita = new Receita("Bife Assado");
-		receita.adicionarIngrediente(bife);
-		receita.adicionarInstrucao(assar);
-		Ingrediente bife1 = new Ingrediente("bife",1,15,UnidadeMedida.UNIDADE);
-		Instrucao assar1 = new Instrucao("Asse o bife.");
-		Receita receita1 = new Receita("Bife Assado");
-		receita1.adicionarIngrediente(bife1);
-		receita1.adicionarInstrucao(assar1);
-		Ingrediente ovo = new Ingrediente("ovo",200,15,UnidadeMedida.GRAMA);
-		Instrucao quebrar = new Instrucao("Quebre o ovo.");
-		Receita receita2 = new Receita("Ovo quebrado.");
-		receita2.adicionarIngrediente(ovo);
-		receita2.adicionarInstrucao(quebrar);
-		receitator.inserir(receita);
-		receitator.inserir(receita1);
-		receitator.inserir(receita2);
-		List<Receita> esperado = new ArrayList<>();
-		esperado.add(receita);
-		esperado.add(receita1);
-		esperado.add(receita2);
-		assertEquals(esperado,receitator.getTodasReceitas());
-	}
-	
-	@Test(expected=ReceitaOuNomeNuloException.class)
-	public void inserirUmaReceitaNula() throws Exception {
-		Receitator receitator = new Receitator();
-		Receita receita = new Receita("Bife Assado");
-		receitator.inserir(receita);
+	public void quantidadeDeReceitasDeveSerZeroAntesDaInsercao() throws Exception {
+		assertEquals(0, livro.getTodasReceitas().size());
 	}
 	
 	@Test
-	public void atualizarReceita() throws Exception {
-		Receitator receitator = new Receitator();
-		Ingrediente bife = new Ingrediente("bife",1,15,UnidadeMedida.UNIDADE);
-		Instrucao assar = new Instrucao("Asse o bife.");
-		Receita receita = new Receita("Bife Assado");
-		receita.adicionarIngrediente(bife);
-		receita.adicionarInstrucao(assar);
-		Ingrediente bife1 = new Ingrediente("bife",1,15,UnidadeMedida.UNIDADE);
-		Instrucao assar1 = new Instrucao("Asse o bife.");
-		Receita receita1 = new Receita("Bife Assado");
-		receita1.adicionarIngrediente(bife1);
-		receita1.adicionarInstrucao(assar1);
-		receitator.inserir(receita);
-		List<Receita> esperado = new ArrayList<>();
-		esperado.add(receita1);
-		receitator.atualizar("Bife Assado", receita1);
-		assertEquals(esperado,receitator.getTodasReceitas());
-	}
-	
-	@Test(expected=ReceitaOuNomeNuloException.class)
-	public void atualizarUsandoReceitaNula() throws Exception {
-		Receitator receitator = new Receitator();
-		Ingrediente oleo = new Ingrediente("Óleo",200,15,UnidadeMedida.GRAMA);
-		Instrucao espalhar = new Instrucao("Espalhe o óleo.");
-		Receita receita2 = new Receita("Óleo Espalhado");
-		receita2.adicionarIngrediente(oleo);
-		receita2.adicionarInstrucao(espalhar);
-		receitator.inserir(receita2);
-		Receita receita = new Receita("Bife Assado");
-		receitator.atualizar("Óleo Espalhado", receita);
-	}
-	
-	@Test(expected=NomeInvalidoException.class)
-	public void atualizarUsandoNomeInvalido() throws Exception {
-		Receitator receitator = new Receitator();
-		Ingrediente oleo = new Ingrediente("Óleo",200,15,UnidadeMedida.GRAMA);
-		Instrucao espalhar = new Instrucao("Espalhe o óleo.");
-		Receita receita2 = new Receita("Óleo Espalhado");
-		receita2.adicionarIngrediente(oleo);
-		receita2.adicionarInstrucao(espalhar);
-		receitator.inserir(receita2);
-		receitator.atualizar("aleatorio", receita2);
+	public void quantidadeDeReceitasDeveAumentarAposInsercao() throws Exception {
+		assertEquals(0, livro.getTodasReceitas().size());
+		livro.inserir(new Receita("Feijoada"));
+		assertEquals(1, livro.getTodasReceitas().size());
 	}
 	
 	@Test
-	public void excluirReceita() throws Exception {
-		Receitator receitator = new Receitator();
-		Ingrediente bergamota = new Ingrediente("bergamota",200,15,UnidadeMedida.GRAMA);
-		Instrucao descascar = new Instrucao("Descasque a bergamota.");
-		Receita receita2 = new Receita("Bergamota Descascada");
-		receita2.adicionarIngrediente(bergamota);
-		receita2.adicionarInstrucao(descascar);
-		receitator.inserir(receita2);
-		receitator.excluir("Bergamota Descascada");
-		List<Receita> esperado = new ArrayList<>();
-		assertEquals(esperado,receitator.getTodasReceitas());
+	public void buscaReceitaPeloNomeDeveEncontrarReceita() throws Exception {
+		Receita feijoada = new Receita("Feijoada");
+		livro.inserir(feijoada);
+		assertEquals(feijoada, livro.buscaReceitaPeloNome("Feijoada"));
 	}
 	
-	@Test(expected=NomeInvalidoException.class)
-	public void excluirReceitaUsandoNomeInvalido() throws Exception {
-		Receitator receitator = new Receitator();
-		Ingrediente agua = new Ingrediente("Água",200,15,UnidadeMedida.GRAMA);
-		Instrucao ferver = new Instrucao("Ferva a água.");
-		Receita receita2 = new Receita("Água fervida");
-		receita2.adicionarIngrediente(agua);
-		receita2.adicionarInstrucao(ferver);
-		receitator.inserir(receita2);
-		receitator.excluir("aleatorio2");
+	@Test(expected=ReceitaNaoEncontradaException.class)
+	public void buscaReceitaPeloNomeDeveLancarExceptionEmBuscaInvalida() throws Exception {
+		livro.buscaReceitaPeloNome("não existe");
+	}
+	
+	@Test
+	public void atualizaReceita() throws Exception {
+		livro.inserir(new Receita("Feijoada"));
+		livro.atualizar("Feijoada", new Receita("Feijoada da Vovó"));
+		
+		assertEquals(1, livro.getTodasReceitas().size());
+		assertTrue(livro.buscaReceitaPeloNome("Feijoada da Vovó") != null);
+	}
+	
+	@Test
+	public void valorTotalDasReceitasDeveSerSomaDoValorDasReceitas() throws Exception {
+		// Arrange
+		Receita feijoada = new Receita("Feijoada com Queijo e Mel");
+		feijoada.adicionarIngrediente(new Ingrediente("Mel", UnidadeMedida.COLHER_SOPA, 1, 10));
+		feijoada.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.COLHER_SOPA, 1, 5));
+		livro.inserir(feijoada);
+		
+		Receita arroz = new Receita("Arroz com Queijo e Mel");
+		arroz.adicionarIngrediente(new Ingrediente("Mel", UnidadeMedida.COLHER_SOPA, 2, 20));
+		arroz.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.COLHER_SOPA, 2, 10));
+		livro.inserir(arroz);
+		
+		// Act
+		double resultado = livro.calcularValorReceitas(feijoada, arroz);
+		
+		// Assert
+		assertEquals(45, resultado, 0.0005);
+	}
+	
+	@Test
+	public void buscaReceitasSemIngredientes() throws Exception {
+		// Arrange
+		Receita feijoada = new Receita("Feijoada com Queijo e Mel");
+		feijoada.adicionarIngrediente(new Ingrediente("Mel", UnidadeMedida.COLHER_SOPA, 1, 10));
+		feijoada.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.COLHER_SOPA, 1, 5));
+		livro.inserir(feijoada);
+		
+		Receita arroz = new Receita("Arroz com Queijo");
+		arroz.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.COLHER_SOPA, 2, 10));
+		livro.inserir(arroz);
+		
+		// Act
+		List<Receita> receitasEncontradas = livro.buscaReceitasSemIngrediente(Arrays.asList("Mel"));
+		
+		// Assert
+		assertEquals(1, receitasEncontradas.size());
+		assertEquals(arroz, receitasEncontradas.get(0));	
+	}
+		
+	@Test
+	public void excluiReceita() throws Exception {
+		// Arrange
+		livro.inserir(new Receita("Feijoada"));
+		
+		// Act
+		livro.excluir("Feijoada");
+		 
+		// Assert 
+		assertEquals(0, livro.getTodasReceitas().size());
 	}
 
+	@Test(expected=ReceitaNaoEncontradaException.class)
+	public void excluiReceitaNaoEncontrada() throws Exception {
+		livro.excluir("não existe");
+	}
 	
 	@Test
-	public void buscarReceitaPeloNome() throws Exception {
-		Receitator receitator = new Receitator();
-		Ingrediente mate = new Ingrediente("Erva Mate",200,15,UnidadeMedida.GRAMA);
-		Instrucao preparar = new Instrucao("Prepare o mate.");
-		Receita receita2 = new Receita("Chimarrão");
-		receita2.adicionarIngrediente(mate);
-		receita2.adicionarInstrucao(preparar);
-		receitator.inserir(receita2);
-		assertEquals(receita2,receitator.buscaReceitaPeloNome("Chimarrão"));
+	public void geraListaDeComprasAgrupandoProdutosComMesmaUnidade() throws Exception {
+		// Arrange
+		Receita feijoada = new Receita("Feijoada com Queijo e Mel");
+		feijoada.adicionarIngrediente(new Ingrediente("Mel", UnidadeMedida.COLHER_SOPA, 1, 10));
+		feijoada.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.KG, 1, 5));
+		livro.inserir(feijoada);
+		
+		Receita arroz = new Receita("Arroz com Queijo");
+		arroz.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.KG, 2, 10));
+		livro.inserir(arroz);
+		
+		// Act
+		Map<Ingrediente, Double> listaDeCompras = livro.geraListaDeCompras(Arrays.asList(feijoada, arroz));
+		
+		// Assert
+		assertEquals(2, listaDeCompras.size());
+		assertTrue("Deve conter queijo na lista de compras", listaDeCompras.containsKey(new Ingrediente("Queijo", UnidadeMedida.KG)));
+		assertTrue("Deve conter mel na lista de compras", listaDeCompras.containsKey(new Ingrediente("Mel", UnidadeMedida.COLHER_SOPA)));
 	}
 	
-	@Test(expected=NomeInvalidoException.class)
-	public void buscarReceitaPeloNomeUsandoNomeInvalido() throws Exception {
-		Receitator receitator = new Receitator();
-		Ingrediente mate = new Ingrediente("Erva mate",200,15,UnidadeMedida.GRAMA);
-		Instrucao preparar = new Instrucao("Prepare um mate bem amargo.");
-		Receita receita2 = new Receita("Mate amargo");
-		receita2.adicionarIngrediente(mate);
-		receita2.adicionarInstrucao(preparar);
-		receitator.inserir(receita2);
-		receitator.buscaReceitaPeloNome("aleatorio3");
+	@Test
+	public void geraListaDeComprasAgrupandoProdutosComUnidadesDiferentes() throws Exception {
+		// Arrange
+		Receita feijoada = new Receita("Feijoada com Queijo e Mel");
+		feijoada.adicionarIngrediente(new Ingrediente("Mel", UnidadeMedida.COLHER_SOPA, 1, 10));
+		feijoada.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.KG, 1, 5));
+		livro.inserir(feijoada);
+		
+		Receita arroz = new Receita("Arroz com Queijo");
+		arroz.adicionarIngrediente(new Ingrediente("Queijo", UnidadeMedida.KG, 2, 10));
+		arroz.adicionarIngrediente(new Ingrediente("Mel", UnidadeMedida.COLHER_CHA, 1, 10));
+		livro.inserir(arroz);
+		
+		// Act
+		Map<Ingrediente, Double> listaDeCompras = livro.geraListaDeCompras(Arrays.asList(feijoada, arroz));
+		
+		// Assert
+		assertEquals(3, listaDeCompras.size());
+		assertTrue("Deve conter queijo na lista de compras", listaDeCompras.containsKey(new Ingrediente("Queijo", UnidadeMedida.KG)));
+		assertTrue("Deve conter colhe de sopa de mel na lista de compras", listaDeCompras.containsKey(new Ingrediente("Mel", UnidadeMedida.COLHER_SOPA)));
+		assertTrue("Deve conter colhe de chá de mel na lista de compras", listaDeCompras.containsKey(new Ingrediente("Mel", UnidadeMedida.COLHER_CHA)));
 	}
+	
+
+
 	
 }
