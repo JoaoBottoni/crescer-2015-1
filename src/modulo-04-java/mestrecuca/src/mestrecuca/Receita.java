@@ -1,29 +1,51 @@
 package mestrecuca;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Receita {
-	public String nome;
-	public ArrayList<Ingrediente> listaIngrediente = new ArrayList<>();
-	public ArrayList<Instrucao> listaInstrucao = new ArrayList<>();
+
+	private String nome;
+	private List<Ingrediente> ingredientes = new ArrayList< >();
+	private List<Instrucao> instrucoes = new ArrayList<>();
 	
 	public Receita(String nome){
-		this.nome=nome;
+		this.nome = nome;
 	}
 	
 	public void adicionarIngrediente(Ingrediente ingrediente){
-		this.listaIngrediente.add(ingrediente);
+		this.ingredientes.add(ingrediente);
 	}
 	
 	public void adicionarInstrucao(Instrucao instrucao){
-		this.listaInstrucao.add(instrucao);
+		this.instrucoes.add(instrucao);
+	}
+	public List<Ingrediente> getIngredientes() {
+		return ingredientes;
 	}
 	
-	public double valorTotalReceita(){
-		double valorTotal = 0;
-		for(Ingrediente ingrediente: listaIngrediente){
-			valorTotal += ingrediente.valor;
+	public List<Instrucao> getInstrucoes() {
+		return instrucoes;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public double calcularValorTotal(){
+		double total = 0;
+		for(Ingrediente ingrediente : ingredientes){
+			total += ingrediente.getPreco();
 		}
-		return valorTotal;
+		return total;
+	}
+
+	public boolean contemUmDosIngredientes(List<String> ingredientesProibidos) {
+		for(Ingrediente ingrediente : ingredientes){
+			if(ingredientesProibidos.contains(ingrediente.getNome())){
+				return true;
+			}
+		}
+		return false;
 	}
 }

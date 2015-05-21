@@ -1,16 +1,39 @@
 package mestrecuca;
 
+
 public class Ingrediente {
-	public String nome;
-	public double quantidade;
-	public UnidadeMedida unidade;
-	public double valor;
+
+	private String nome;
+	private double quantidade;
+	private double preco;
+	private UnidadeMedida unidadeMedida;
 	
-	public Ingrediente(String nome, double quantidade, double valor, UnidadeMedida unidade){
-		this.nome=nome;
-		this.quantidade=quantidade;
-		this.unidade=unidade;
-		this.valor=valor;
+	public Ingrediente(String nome, UnidadeMedida unidade, double quantidade, double preco){
+		this.nome = nome;
+		this.unidadeMedida = unidade;
+		this.quantidade = quantidade;
+		this.preco = preco;
+	}
+	
+	public Ingrediente(String nome, UnidadeMedida unidade){
+		this.nome = nome;
+		this.unidadeMedida = unidade;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public double getQuantidade() {
+		return quantidade;
+	}
+	
+	public double getPreco() {
+		return preco;
+	}
+	
+	public UnidadeMedida getUnidadeMedida() {
+		return unidadeMedida;
 	}
 
 	@Override
@@ -18,7 +41,8 @@ public class Ingrediente {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((unidade == null) ? 0 : unidade.hashCode());
+		result = prime * result
+				+ ((unidadeMedida == null) ? 0 : unidadeMedida.hashCode());
 		return result;
 	}
 
@@ -36,11 +60,11 @@ public class Ingrediente {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (unidade != other.unidade)
+		if (unidadeMedida != other.unidadeMedida)
 			return false;
 		return true;
 	}
-	
-	
 
+	
+	
 }

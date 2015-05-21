@@ -6,5 +6,6 @@ public enum UnidadeMedida {
 	XICARA,
 	COLHER_SOPA,
 	COLHER_CHA,
-	MILILITROS;
+	MILILITROS,
+	KG;
 }
